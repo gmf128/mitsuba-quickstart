@@ -15,7 +15,7 @@ def sph_to_dir(theta, phi):
     sp, cp = dr.sincos(phi)
     return mi.Vector3f(cp * st, sp * st, ct)
 
-# Create a (dummy) surface interaction to use for the evaluation of the BSDF
+# Create a (dummy i.e. fake) surface interaction to use for the evaluation of the BSDF
 si = dr.zeros(mi.SurfaceInteraction3f)
 
 
@@ -31,6 +31,7 @@ theta_o, phi_o = dr.meshgrid(
 wo = sph_to_dir(theta_o, phi_o)
 
 # Evaluate the whole array (18000 directions) at once
+# values: 180000 * 3 Color3f
 values = bsdf.eval(mi.BSDFContext(), si, wo)
 
 import numpy as np

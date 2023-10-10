@@ -134,7 +134,10 @@ dmypy.json
 # IDE
 .idea/
 .vscode/
+
+# mts-quickstart used data
 results/
+refs/
 
 #results
 .zip
